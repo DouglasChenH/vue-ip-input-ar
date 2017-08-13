@@ -143,6 +143,7 @@
             },
             onReady() {
                 var ip = this.ip;
+                this.mask = '32';
                 if (this.withMask) {
                     if (ip.indexOf('/') !== -1) {
                         let exp = this.ip.split('/');

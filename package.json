@@ -1,6 +1,6 @@
 {
   "name": "vue-ip-input-ar",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "description": "An ip input implement by vuejs",
   "main": "./dist/vue-ip-input.min.js",
   "scripts": {
