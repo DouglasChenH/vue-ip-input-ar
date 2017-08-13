@@ -133,7 +133,6 @@
                 e.preventDefault();
             },
             onReady() {
-                console.debug(this.ip);
                 var ip = this.ip;
                 if (ip && ip.indexOf('.') !== -1) {
                     ip.split('.').map((segment, index) => {
