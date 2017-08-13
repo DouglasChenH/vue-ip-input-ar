@@ -1,6 +1,6 @@
-# vue-ip-input
-[![Build Status](https://travis-ci.org/lakb248/vue-ip-input.svg?branch=master)](https://travis-ci.org/lakb248/vue-ip-input)
-[![codecov](https://codecov.io/gh/lakb248/vue-ip-input/branch/master/graph/badge.svg)](https://codecov.io/gh/lakb248/vue-ip-input)
+# vue-ip-input-ar
+
+This is a forked project from [VueIpInput](https://github.com/lakb248/vue-ip-input). We develop some items based on VUE-1. 
 
 > An ip input implement by vuejs
 
@@ -13,19 +13,19 @@
 ### Install
 
 ```bash
-npm install vue-ip-input --save
+npm install vue-ip-input-ar --save
 ```
 
 And, if you are using vue 2.0
 
 ```bash
-npm install vue-ip-input@next --save
+npm install vue-ip-input-ar@next --save
 ``` 
 
 ### CommonJS
 
 ```javascript
-var VueIpInput = require('vue-ip-input');
+var VueIpInput = require('vue-ip-input-ar');
 
 new Vue({
     components: {
@@ -33,7 +33,7 @@ new Vue({
     },
     data: function () {
         return {
-            ip: '127.0.0.1'
+            ip: '127.0.0.1/16'
         };
     },
     methods: {
@@ -44,13 +44,13 @@ new Vue({
             console.log('ip input blur:', ip);
         }
     },
-    template: '<vue-ip-input :ip="ip" :on-change="onIpChange" :on-blur="onIpBlur"></vue-ip-input>'
+    template: '<vue-ip-input :ip="ip" :on-change="onIpChange" :on-blur="onIpBlur" :with-mask="true"></vue-ip-input>'
 });
 ```
 
 ### ES6
 ```javascript
-import VueIpInput from 'vue-ip-input';
+import VueIpInput from 'vue-ip-input-ar';
 
 new Vue({
     components: {
@@ -58,7 +58,7 @@ new Vue({
     },
     data() {
         return {
-            ip: '127.0.0.1'
+            ip: '127.0.0.1/16'
         };
     },
     methods: {
@@ -69,7 +69,7 @@ new Vue({
             console.log('ip input blur:', ip);
         }
     },
-    template: '<vue-ip-input :ip="ip" :on-change="onIpChange" :on-blur="onIpBlur"></vue-ip-input>'
+    template: '<vue-ip-input :ip="ip" :on-change="onIpChange" :on-blur="onIpBlur" :with-mask="true"></vue-ip-input>'
 })
 ```
 
@@ -79,6 +79,7 @@ new Vue({
 | ip | the value of ip input |
 | onChange | trigger when the ip change |
 | onBlur | trigger when the input blur |
+| withMask | ‌Boolean variable of show select mask of ip |
 
 ## License
 
