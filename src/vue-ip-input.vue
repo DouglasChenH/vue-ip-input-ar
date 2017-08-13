@@ -8,6 +8,9 @@
                 v-on:paste="onPaste($event, $index)">
             <i v-show="$index != segments.length - 1">.</i>
         </div>
+        <select class="mask-list" v-model="mask" v-if="withMask">
+            <option v-for="m in masks" :value="m">/ {{ m }}</option>
+        </select>
     </div>
 </template>
 
@@ -62,16 +65,22 @@
                 type: String,
                 required: true
             },
+            withMask: Boolean,
             onChange: Function,
             onBlur: Function
         },
         data() {
             return {
-                segments: ['', '', '', '']
+                segments: ['', '', '', ''],
+                mask: '32',
+                masks: ['32', '31', '30', '29', '28', '27', '26', '25', '24', '23', '22', '21', '20', '19', '18', '17', '16', '15', '14', '13', '12', '11', '10', '9', '8', '7', '6', '5', '4', '3', '2', '1']
             };
         },
         watch:{
-            ip: function(){ this.onReady() }
+            ip: function(){ this.onReady() },
+            mask: function(){
+                this.ip = this.segments.join('.') + (this.withMask ? `/${this.mask}`:'');
+            }
         },
         methods: {
             onInputKeydown(event, index) {
@@ -134,6 +143,16 @@
             },
             onReady() {
                 var ip = this.ip;
+                if (this.withMask) {
+                    if (ip.indexOf('/') !== -1) {
+                        let exp = this.ip.split('/');
+                        this.mask = exp[1];
+                        ip = exp[0];
+                    }
+                }else if(ip.indexOf('/') !== -1) {
+                    let exp = this.ip.split('/');
+                    ip = exp[0];
+                }
                 if (ip && ip.indexOf('.') !== -1) {
                     ip.split('.').map((segment, index) => {
                         segment = Number(segment);
@@ -145,7 +164,7 @@
                     });
                 }
                 this.$watch(() => {
-                    return this.segments.join('.');
+                     return this.segments.join('.') + (this.withMask ? `/${this.mask}`:'');
                 }, (val, oldValue) => {
                     if (val !== oldValue) {
                         if (val === '...') {
@@ -176,11 +195,11 @@
     }
     .ip-segment {
         display: inline-block;
-        width: 39px;
+        width: 40px;
         height: 26px;
         line-height: normal;
         input {
-            width: 30px;
+            width: 29px;
             height: 26px;
             line-height: normal;
             border: none;
@@ -195,5 +214,20 @@
             display: inline-block;
             font-size: 18px;
         }
+    }
+    .mask-list{
+        width: 50px;
+        height: 26px;
+        line-height: normal;
+        border: none;
+        outline: none;
+        text-align: center;
+        text-indent: 0px;
+        margin: 0px;
+        padding: 0px;
+        background-color: transparent;
+    }
+    .mask-slash, .mask-list{
+        display: inline-block;
     }
 </style>
