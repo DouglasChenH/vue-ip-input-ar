@@ -1,6 +1,6 @@
 # vue-ip-input-ar
 
-This is a forked project from [VueIpInput](https://github.com/lakb248/vue-ip-input). We develop some items based on VUE-1. 
+This is a forked project from [vue-ip-input-ar](https://github.com/pilevar/vue-ip-input-ar). I redesigned the UI using Bootstrap for personal use. Please go to original project https://github.com/pilevar/vue-ip-input-ar if you are interested.
 
 > An ip input implement by vuejs
 
