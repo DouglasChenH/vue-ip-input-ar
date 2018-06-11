@@ -3,7 +3,10 @@
 This is a forked project from [vue-ip-input-ar](https://github.com/pilevar/vue-ip-input-ar). I redesigned the UI using Bootstrap for personal use. Please go to original project https://github.com/pilevar/vue-ip-input-ar if you are interested.
 
 > An ip input implement by vuejs
+![image](https://github.com/DouglasChenH/vue-ip-input-ar/raw/master/ipInput.png)
+![image](https://github.com/DouglasChenH/vue-ip-input-ar/raw/master/ipInput1.png)
 
+### Below are forked Readme contents
 ## Demo
 
 [Demo](https://lakb248.github.io/vue-ip-input)
